@@ -3,14 +3,7 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-
-stages:
-  - stage: Build
-    displayName: 'Build Stage'
-    jobs:
-      - job: BuildJob
-        displayName: 'Build Maven Application'
-        steps:
+  steps:
           - task: Maven@4
             inputs:
               mavenPomFile: 'pom.xml'
@@ -24,16 +17,5 @@ stages:
               ArtifactName: 'drop'
               publishLocation: 'Container'
 
-  - stage: Deploy
-    displayName: 'Deploy Stage'
-    dependsOn: Build
-    jobs:
-      - job: DeployJob
-        displayName: 'Deploy Application'
-        steps:
-          - script: |
-              echo "Starting Deployment"
-              echo "Deploying TomcatMavenApp"
-              echo "Deployment Successful"
-            displayName: 'Deploy Application'
+ 
 
