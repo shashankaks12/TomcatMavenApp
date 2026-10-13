@@ -1,4 +1,3 @@
-
 trigger:
   - master
 
@@ -37,4 +36,3 @@ stages:
               echo "Deploying TomcatMavenApp"
               echo "Deployment Successful"
             displayName: 'Deploy Application'
-
